@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Users</title>
+  <link rel="stylesheet" href="/css/users.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="main">
+    <h1>Users</h1>
+    <a href="http://localhost:3000" class="back-home">back</a>
+    <div class="user-holder-div">
+      <% if (users.length > 0) { %>
+      <% users.forEach((user) => { %>
+      <div class="pannel">
+      <div class="pfp-holder">
+      <img src="<%= user.imageurl %>" class="pfp"></img>
+      </div>
+      <h5><%= user.name %></h5>
+      <h6><%= user.email %></h6>
+      <div class="update-delete-holder">
+      <a href="http://localhost:3000/update/<%= user._id %>" class="update-user">update</a>
+      <a href="http://localhost:3000/delete/<%= user._id %>" class="delete-user">delete</a>
+      </div>
+      </div>
+      <% })  %>
+      <% } else { %>
+      <h3>No users yet</h3>
+      <% } %>
+    </div>
+  </div>
+</body>
+</html>
